@@ -38,13 +38,13 @@
  SQL:(SQL模板，对应数据库标command_db_conf中的db_template字段): 
  
 ```
-         INSERT INTO user_info(username,email,tel_no)VALUES('$username$','$email$','$tel_no$')
- ```
+INSERT INTO user_info(username,email,tel_no)VALUES('$username$','$email$','$tel_no$')
+```
 
-         $username$ 为一个可变参数，可以看成一段文彬，这个参数在发送给producer中的json中需要携带
+$username$ 为一个可变参数，可以看成一段文彬，这个参数在发送给producer中的json中需要携带
 
 ```
-        {"command_no":"100001", "username":"100023", "email":"xxxx@xx.com", "tel_no":"18888888888"}
+{"command_no":"100001", "username":"100023", "email":"xxxx@xx.com", "tel_no":"18888888888"}
 ```
 
 ## 后续
