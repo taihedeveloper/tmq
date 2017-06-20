@@ -43,3 +43,10 @@
 
          ```
 {"command_no":"100001", "username":"100023", "email":"xxxx@xx.com", "tel_no":"18888888888"}
+
+## 后续
+1.后续会添加对zookeeper的支持，以及监控消息队列长度等功能
+
+## Copyright
+taihedeveloper全体成员
+
