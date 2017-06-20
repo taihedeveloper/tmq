@@ -1,0 +1,30 @@
+#!/bin/bash
+supervice_home=/home/work/supervise
+dir=$(pwd)
+
+start() {
+    kill -9 `ps -ef | grep -v grep | grep supervise | grep mqserver_consumer | awk '{print $2}'`
+    killall -9 mqserver_consumer
+    mkdir -p $supervice_home/status/mqserver_consumer_cache
+    cd $dir/..
+    $supervice_home/bin/supervise  -p $supervice_home/status/mqserver_consumer_cache -f ./bin/mqserver_consumer
+}
+
+stop(){
+    kill -9 `ps -ef | grep -v grep | grep supervise | grep mqserver_consumer | awk '{print $2}'`
+    killall -9 mqserver_consumer
+}
+
+case C"$1" in
+    Cstart)
+    start
+    echo "Done!"
+    ;;
+    Cstop)
+    stop
+    echo "Done!"
+    ;;
+    C*)
+    echo "Usage: $0 {start|stop}"
+    ;;
+esac
