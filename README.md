@@ -21,9 +21,10 @@
 以http和json的消费为例：
 
  uri(http 模板，对应数据库标command_http_conf中的http_template字段): 
-     ```
-         /v1/restserver/ting?method=baidu.ting.ugcpush.pushInfo&transid={{#TRANSID}}&f=cm_transfer 
-         ```
+    
+```
+ /v1/restserver/ting?method=baidu.ting.ugcpush.pushInfo&transid={{#TRANSID}}&f=cm_transfer 
+```
 
 {{#TRANSID}} 为一个可变参数，这个参数在发送给producer中的json中需要携带
 
@@ -35,14 +36,16 @@
 以MySQL和json的消费为例：
 
  SQL:(SQL模板，对应数据库标command_db_conf中的db_template字段): 
-     ```
+ 
+```
          INSERT INTO user_info(username,email,tel_no)VALUES('$username$','$email$','$tel_no$')
-         ```
+ ```
 
          $username$ 为一个可变参数，可以看成一段文彬，这个参数在发送给producer中的json中需要携带
 
-         ```
-{"command_no":"100001", "username":"100023", "email":"xxxx@xx.com", "tel_no":"18888888888"}
+```
+        {"command_no":"100001", "username":"100023", "email":"xxxx@xx.com", "tel_no":"18888888888"}
+```
 
 ## 后续
 1.后续会添加对zookeeper的支持，以及监控消息队列长度等功能
